@@ -24,7 +24,7 @@
 #  - a list of XML files (their names, as strings; e.g. [ "1_a_results.xml", "1_b_results.xml" ]
 #  - a name for the output (e.g. "tmp/GenomeDetective_results.csv")
 
-#Import requires python libraries --------------------------
+#Import required python libraries --------------------------
 from lxml import etree      #XML parser
 import pandas as pd         #dataframe and csv export
 from collections import defaultdict
