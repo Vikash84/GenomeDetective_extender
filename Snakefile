@@ -51,12 +51,13 @@ XML_FILES = glob.glob(XML)
 CSV_FILES = glob.glob(CSV)
 DISCOVERY_FILES = glob.glob(DISCOVERIES)
 
+SAMPLES = [ file[8:file.index('_results.xml')] for file in XML_FILES ]
+
 rule all:
     input:
         "tmp/bokeh_input.csv",
-        "results/GenomeDetective-PCR_summary.csv"
-        #Write the output to the tmp folder.
-        #Check for correctness before promoting them to the results folder.
+        "results/GenomeDetective-PCR_summary.csv",
+        expand("results/{sample}_GenomeDetective_CAMI-profiling.tsv", sample = SAMPLES)
         
 rule parse_xml:
     input:
@@ -101,6 +102,6 @@ rule convert_to_cami_profiling:
     input:
         "results/GenomeDetective-PCR_summary.csv"
     output:
-        "results/GenomeDetective_CAMI-profiling.tsv"
+        "results/{sample}_GenomeDetective_CAMI-profiling.tsv"
     script:
         "bin/GenomeDetective_to_CAMI-profiling.py"
