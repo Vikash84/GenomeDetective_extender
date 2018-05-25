@@ -54,7 +54,7 @@ DISCOVERY_FILES = glob.glob(DISCOVERIES)
 rule all:
     input:
         "tmp/bokeh_input.csv",
-        "tmp/GenomeDetective-PCR_summary.csv"
+        "results/GenomeDetective-PCR_summary.csv"
         #Write the output to the tmp folder.
         #Check for correctness before promoting them to the results folder.
         
@@ -71,7 +71,7 @@ rule write_report:
         csv = CSV_FILES,
         parsed_xml = "tmp/GenomeDetective_results-xml.csv"
     output:
-        "tmp/GenomeDetective-PCR_summary.csv"
+        "results/GenomeDetective-PCR_summary.csv"
     script:
         "bin/GenomeDetective_report_writer.py"
     
@@ -96,3 +96,11 @@ rule create_heatmaps:
     #shell:
     #    "python bin/GenomeDetective_heatmaps.py {params.colour}"
     #Uncomment this shell command if you want to change the colour of the heatmaps
+    
+rule convert_to_cami_profiling:
+    input:
+        "results/GenomeDetective-PCR_summary.csv"
+    output:
+        "results/GenomeDetective_CAMI-profiling.tsv"
+    script:
+        "bin/GenomeDetective_to_CAMI-profiling.py"
