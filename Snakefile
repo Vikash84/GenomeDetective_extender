@@ -7,7 +7,6 @@ of multiple samples. It requires:
   - XML files (save as "[sample ID]_results.xml")
   - CSV files (save as "[sample ID]_results.csv")
   
-Note: at the moment, 'discovery' assignments are ignored.
 Note: for now, I assume the sample ID is a combination of
     run ID and sample ID. E.g. run 3, sample 1 makes a file
     "3_1_results.csv"
@@ -55,7 +54,6 @@ SAMPLES = [ file[8:file.index('_results.xml')] for file in XML_FILES ]
 
 rule all:
     input:
-        "tmp/bokeh_input.csv",
         "results/GenomeDetective-PCR_summary.csv",
         expand("results/{sample}_GenomeDetective_CAMI-profiling.tsv", sample = SAMPLES)
         
@@ -83,15 +81,16 @@ rule create_heatmaps:
         parsed_xml="tmp/GenomeDetective_results-xml.csv"
     output:
         heatmap_a="results/GenomeDetective_heatmap_A.html",
-        #assignments
+        #Assignments
         heatmap_d="results/GenomeDetective_heatmap_D.html",
-        #discoveries
+        #Discoveries
         heatmap_ad="results/GenomeDetective_heatmap_AD.html",
-        #assignments + discoveries in one map
+        #Assignments + discoveries in one map
         data_table="tmp/bokeh_input.csv"
-        #table on which heatmaps are based
+        #Table on which heatmaps are based
     params:
-        colour = "#[hex-code]"
+        colour = "#[hex-code]" #Insert a number here to use a custom colour
+        #For instance, pick one from http://www.color-hex.com/
     script:
         "bin/GenomeDetective_heatmaps.py"
     #shell:
