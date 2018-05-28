@@ -17,7 +17,7 @@ Quick how-to:
 
 `source activate genomedetective`
 
-`Snakemake -p`
+`snakemake -p`
 
 Or open a Jupyter Notebook and play with the `.ipynb` files in the `bin/` directory.
 
