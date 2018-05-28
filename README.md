@@ -37,3 +37,5 @@ Or open a Jupyter Notebook and play with the `.ipynb` files in the `bin/` direct
 2. A report table (as CSV) that combines results from the CSV and XML output files. This file summarises in 23 columns all information that may be interesting in comparing the assignments by Genome Detective to the (validated) qPCR results. (_Note that some fields still have to be filled in manually!_)
 
 3. Heatmaps of the reported viruses ('virome comparison tool')
+
+4. A table describing the results in the [CAMI profiling format](https://github.com/bioboxes/rfc/blob/60263f34c57bc4137deeceec4c68a7f9f810f6a5/data-format/profiling.mkd).
