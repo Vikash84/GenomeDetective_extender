@@ -100,7 +100,7 @@ rule create_heatmaps:
     
 rule convert_to_cami_profiling:
     input:
-        "results/GenomeDetective-PCR_summary.csv"
+        "tmp/bokeh_input.csv"
     output:
         "results/{sample}_GenomeDetective_CAMI-profiling.tsv"
     script:
