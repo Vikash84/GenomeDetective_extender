@@ -24,8 +24,8 @@
 #  - ete3
 #  
 # For automatic use in snakemake. The corresponding snakemake rule should provide the input:
-#  - the parsed report file ("results/GenomeDetective_results.csv")
-#  - a list of names for the output (e.g. ["results/3_1_GenomeDetective_CAMI-profiling.tsv", ...])
+#  - the bokeh input file ("tmp/bokeh_input.csv)
+#  - a name for the output (e.g. "results/3_1_GenomeDetective_CAMI-profiling.tsv")
 #  
 #   ** Remember that an output has to be generated for each sample, separately! **
 
