@@ -31,11 +31,11 @@ As a result, the pipeline creates:
       - fraction_total_reads
       - pcr_ngs_congruence (EMPTY - fill in manually!)
       - pcr_ngs_comments (EMPTY - fill in manually!)
-  - CAMI profiling output (see also: https://github.com/bioboxes/rfc/blob/60263f34c57bc4137deeceec4c68a7f9f810f6a5/data-format/profiling.mkd)
+  - Bioboxes profiling output (see also: https://github.com/bioboxes/rfc/blob/60263f34c57bc4137deeceec4c68a7f9f810f6a5/data-format/profiling.mkd)
   - heatmap + data tables (using Bokeh)
   
 These results may be used to check the output, compare to PCR results
-and to other pipeliens, and the heatmap may serve as 
+and to other pipelines, and the heatmap may serve as 
 'virome comparison tool'.      
 """
 
